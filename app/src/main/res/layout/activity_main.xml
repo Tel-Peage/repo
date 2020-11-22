@@ -40,12 +40,13 @@
             android:layout_marginTop="72dp"
             android:backgroundTint="#577590"
             android:insetLeft="100dp"
+            android:insetTop="0dp"
             android:insetRight="100dp"
             android:text="SIGN UP"
             android:textColor="#FFFFFF"
             app:cornerRadius="20dp"
             app:icon="@drawable/cil_user_follow"
-            app:iconPadding="0dp"
+            app:iconPadding="8dp"
             app:iconTint="#FFFFFF" />
 
         <TextView
