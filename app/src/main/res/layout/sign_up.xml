@@ -21,7 +21,7 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
-            android:hint="First Name"
+            android:hint="Nom"
             android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="#6FFFFFFF" />
@@ -38,7 +38,7 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
-            android:hint="Name"
+            android:hint="Prénom"
             android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="#6FFFFFFF" />
@@ -73,7 +73,7 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
-            android:hint="Phone Number"
+            android:hint="Numéro Téléphone"
             android:inputType="phone"
             android:textColor="@color/white"
             android:textColorHint="#6FFFFFFF" />
@@ -90,7 +90,7 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
-            android:hint="Password"
+            android:hint="Mot de passe"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="#6FFFFFFF" />
@@ -107,7 +107,7 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:fontFamily="@font/roboto_medium"
-            android:hint="Confirm Password"
+            android:hint="Confirmer mot de passe"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="#6FFFFFFF" />
