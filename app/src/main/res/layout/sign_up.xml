@@ -9,18 +9,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="300dp"
             android:layout_marginRight="100dp"
             android:ems="10"
             android:hint="First Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="33dp" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
@@ -30,7 +37,13 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:hint="Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="33dp" />
 
         <EditText
             android:id="@+id/editTextTextEmailAddress2"
@@ -40,7 +53,13 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="33dp" />
 
         <EditText
             android:id="@+id/editTextPhone"
@@ -50,7 +69,13 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:hint="Phone Number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="33dp" />
 
         <EditText
             android:id="@+id/editTextTextPassword2"
@@ -60,7 +85,13 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="33dp" />
 
         <EditText
             android:id="@+id/editTextTextPassword3"
@@ -70,7 +101,10 @@
             android:layout_marginRight="100dp"
             android:ems="10"
             android:hint="Confirm Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
