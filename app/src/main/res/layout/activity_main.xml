@@ -11,29 +11,29 @@
         android:id="@+id/goToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
         android:backgroundTint="#2196F3"
         android:text="Log in"
         android:textColor="@color/black"
         app:icon="@android:drawable/ic_menu_directions"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402"
         app:rippleColor="#FFFFFF" />
 
     <Button
         android:id="@+id/goToSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#2196F3"
         android:text="SIGN UP"
         android:textColor="@color/black"
         app:icon="@android:drawable/ic_input_add"
         app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goToLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
