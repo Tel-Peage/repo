@@ -9,18 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="170dp">
+        tools:layout_editor_absoluteX="287dp"
+        tools:layout_editor_absoluteY="345dp">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/welcome_text"
             android:layout_width="match_parent"
-            android:layout_height="63dp"
+            android:layout_height="58dp"
             android:fontFamily="@font/roboto_medium"
-            android:paddingTop="15dp"
-            android:text="Bienvenue"
+            android:paddingTop="20dp"
+            android:text="hello"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

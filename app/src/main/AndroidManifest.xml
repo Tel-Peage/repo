@@ -26,6 +26,7 @@
         <activity android:name=".LogInActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".PermisActivity" />
+        <activity android:name=".UserMainPage" />
 
         <meta-data
             android:name="preloaded_fonts"
