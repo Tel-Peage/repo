@@ -39,8 +39,8 @@ class LogInActivity: AppCompatActivity() {
     }
 
     fun checkIfUserExists(email: String, mdp: String){
-        if (email == "wesh@gmail.com" && mdp == "1234"){
-            Toast.makeText(this@LogInActivity, "Bienvenue Wesh Dene 59", Toast.LENGTH_SHORT).show()
+        if (email == "nico@gmail.com" && mdp == "1234"){
+            Toast.makeText(this@LogInActivity, "Bienvenue Nicolas Flammel", Toast.LENGTH_SHORT).show()
 
             startActivity(Intent(this, UserMainPage::class.java))
 
