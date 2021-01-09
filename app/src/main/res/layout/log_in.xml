@@ -13,7 +13,7 @@
 
         <EditText
             android:id="@+id/logIn_text_email"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="300dp"
@@ -32,7 +32,7 @@
 
         <EditText
             android:id="@+id/logIn_text_mdp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
@@ -52,7 +52,7 @@
         <Button
             android:id="@+id/button_log"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:backgroundTint="@color/grey_button"
