@@ -6,6 +6,10 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class LogInActivity: AppCompatActivity() {
 
@@ -17,37 +21,55 @@ class LogInActivity: AppCompatActivity() {
         val log_In_Button_Check = findViewById<Button>(R.id.button_log)
 
         val email = findViewById<TextView>(R.id.logIn_text_email)
-
         val mdp = findViewById<TextView>(R.id.logIn_text_mdp)
 
         log_In_Button_Check.setOnClickListener{
-            val email: String = email.text.toString()
-            val mdp: String = mdp.text.toString()
 
-            if (email  == "" || mdp == ""){
-                Toast.makeText(this@LogInActivity, "Les champs doivent être complétés", Toast.LENGTH_SHORT).show()
-            }
-            else if("@" !in email){
-                Toast.makeText(this@LogInActivity, "L'adresse mail n'est pas valide", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                checkIfUserExists(email, mdp)
-            }
-
+            checkIfUserExists()
         }
 
     }
 
-    fun checkIfUserExists(email: String, mdp: String){
-        if (email == "nico@gmail.com" && mdp == "1234"){
-            Toast.makeText(this@LogInActivity, "Bienvenue Nicolas Flammel", Toast.LENGTH_SHORT).show()
+    private fun checkIfUserExists(){
+        var database = FirebaseDatabase.getInstance().reference
+        var children = database.child("Saves")
 
-            startActivity(Intent(this, UserMainPage::class.java))
+        val emailText = findViewById<TextView>(R.id.logIn_text_email)
+        val mdpText = findViewById<TextView>(R.id.logIn_text_mdp)
 
-        }
-        else{
-            Toast.makeText(this@LogInActivity, "Cet Utilisateur n'existe pas", Toast.LENGTH_SHORT).show()
+        if (emailText.text.toString() == "" || mdpText.text.toString() == ""){
+            Toast.makeText(this@LogInActivity, "Veuillez compléter tous les champs !", Toast.LENGTH_SHORT).show()
+        }else{
+            var lucas = children.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var items = snapshot.getChildren().iterator()
+
+                    for(i in items){
+                        var userEmail = i.child("email").getValue().toString()
+                        var userMdp = i.child("mdp").getValue().toString()
+
+                        var userPrenom = i.child("prenom").getValue().toString()
+                        var userId = i.child("id").getValue().toString()
+
+
+
+                        val emailText = findViewById<TextView>(R.id.logIn_text_email)
+                        val mdpText = findViewById<TextView>(R.id.logIn_text_mdp)
+
+                        if(emailText.text.toString() == userEmail && mdpText.text.toString() == userMdp){
+                            Toast.makeText(applicationContext, "Bienvenue $userPrenom", Toast.LENGTH_LONG).show()
+                            val intent = Intent(baseContext, UserMainPage::class.java)
+                            intent.putExtra("USERNAME", userId)
+                            startActivity(intent)
+                            return
+                        }
+                    }
+                    Toast.makeText(this@LogInActivity, "Cet Utilisateur n'existe pas !", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
     }
-
 }
