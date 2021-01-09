@@ -28,6 +28,8 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".PermisActivity" />
         <activity android:name=".UserMainPage" />
+        <activity android:name=".AssuranceActivity" />
+
 
         <meta-data
             android:name="preloaded_fonts"

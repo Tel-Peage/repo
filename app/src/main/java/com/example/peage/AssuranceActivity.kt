@@ -8,25 +8,20 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-class PermisActivity : AppCompatActivity() {
+class AssuranceActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var button: Button
-    lateinit var buttonNext: Button
     private val pickImage = 100
     private var imageUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.permis_camera)
+        setContentView(R.layout.asssurance_camera)
         title = "KotlinApp"
-        imageView = findViewById(R.id.imageView)
-        button = findViewById(R.id.buttonLoadPicture)
+        imageView = findViewById(R.id.imageView2)
+        button = findViewById(R.id.buttonLoadPicture2)
         button.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
-        }
-        buttonNext = findViewById(R.id.goToAssurance)
-        buttonNext.setOnClickListener{
-            startActivity(Intent(this, AssuranceActivity::class.java))
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
