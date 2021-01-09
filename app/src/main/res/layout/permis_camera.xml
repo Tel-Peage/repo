@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_200"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="2dp">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:layout_weight="1"
+        android:text="Permis de conduire"
+        android:textColor="@color/white" />
 
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_gravity="center_horizontal" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
-        <Button
-            android:id="@+id/camera_permis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="@color/grey_button"
-            android:text="Capture" />
+    <Button
+        android:id="@+id/buttonLoadPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:backgroundTint="@color/grey_button"
+        android:text="Load Picture"
+        android:textColor="@color/white"
+        app:cornerRadius="20dp"
+        app:rippleColor="#FFFFFF" />
 
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

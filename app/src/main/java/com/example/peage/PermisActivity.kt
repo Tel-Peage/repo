@@ -1,33 +1,34 @@
 package com.example.peage
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-class PermisActivity: AppCompatActivity() {
-
-
+class PermisActivity : AppCompatActivity() {
+    lateinit var imageView: ImageView
+    lateinit var button: Button
+    private val pickImage = 100
+    private var imageUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.permis_camera)
-
-        val REQUEST_IMAGE_CAPTURE = 1
-
-        val OpenCamera = findViewById<Button>(R.id.camera_permis)
-        OpenCamera.setOnClickListener{
-             fun dispatchTakePictureIntent() {
-                try {
-                    startActivityForResult(
-                        Intent(MediaStore.ACTION_IMAGE_CAPTURE),
-                        REQUEST_IMAGE_CAPTURE
-                    )
-                } catch (e: ActivityNotFoundException) {
-                    //display error that to the user
-                }
-            }
+        title = "KotlinApp"
+        imageView = findViewById(R.id.imageView)
+        button = findViewById(R.id.buttonLoadPicture)
+        button.setOnClickListener {
+            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startActivityForResult(gallery, pickImage)
+        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == pickImage) {
+            imageUri = data?.data
+            imageView.setImageURI(imageUri)
         }
     }
 }
