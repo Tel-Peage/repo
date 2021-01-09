@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "148524322536",
+    "project_id": "tel-et-peage",
+    "storage_bucket": "tel-et-peage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148524322536:android:9c11c01db1b3a51ff4035d",
+        "android_client_info": {
+          "package_name": "com.example.peage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148524322536-7k5ffv1r6nn3jrb9ldh9e7aovm64u0in.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcNAioPH6KidxrMBYC-OZ_VgeJgm7BGVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148524322536-7k5ffv1r6nn3jrb9ldh9e7aovm64u0in.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
