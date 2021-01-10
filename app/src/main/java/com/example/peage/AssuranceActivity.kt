@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 class AssuranceActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var button: Button
+    lateinit var goToCard: Button
     private val pickImage = 100
     private var imageUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,10 @@ class AssuranceActivity : AppCompatActivity() {
         button.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
+        }
+        goToCard =  findViewById(R.id.goToCard)
+        goToCard.setOnClickListener{
+            startActivity(Intent(this, CardActivity::class.java))
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
