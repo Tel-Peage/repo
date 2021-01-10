@@ -9,7 +9,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="105dp" />
+        android:layout_height="175dp" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
@@ -60,10 +60,23 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
-        android:hint="Code de sécurité"
+        android:hint="Cryptogramme"
         android:inputType="number" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="33dp" />
+
+    <Button
+        android:id="@+id/goToLoginFromCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:backgroundTint="@color/grey_button"
+        android:text="Passer"
+        android:textColor="@color/white"
+        app:cornerRadius="20dp"
+        app:iconTint="@color/grey_button"
+        app:rippleColor="@color/grey_button" />
 </LinearLayout>
