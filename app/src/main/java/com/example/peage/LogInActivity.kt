@@ -40,7 +40,7 @@ class LogInActivity: AppCompatActivity() {
         if (emailText.text.toString() == "" || mdpText.text.toString() == ""){
             Toast.makeText(this@LogInActivity, "Veuillez compléter tous les champs !", Toast.LENGTH_SHORT).show()
         }else{
-            var lucas = children.addListenerForSingleValueEvent(object : ValueEventListener {
+            var sb = children.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
                 }
 
@@ -67,7 +67,7 @@ class LogInActivity: AppCompatActivity() {
                             return
                         }
                     }
-                    Toast.makeText(this@LogInActivity, "Cet Utilisateur n'existe pas !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LogInActivity, "Email ou mot de passe incorrecte !", Toast.LENGTH_SHORT).show()
                 }
             })
         }

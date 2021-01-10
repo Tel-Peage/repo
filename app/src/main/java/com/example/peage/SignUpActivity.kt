@@ -9,8 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import java.util.regex.Pattern
 
 class SignUpActivity: AppCompatActivity() {
@@ -83,17 +82,49 @@ class SignUpActivity: AppCompatActivity() {
             return
         }
 
-        val ref = FirebaseDatabase.getInstance().getReference("Saves")
-        val saveId = ref.push().key.toString()
+        var database = FirebaseDatabase.getInstance().reference
+        var children = database.child("Saves")
+        var exists = false
+        var sb = children.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+            }
 
-        val save = Save(saveId, name, name2, email, num, mdp, confMdp)
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var items = snapshot.getChildren().iterator()
 
-        ref.child(saveId).setValue(save).addOnCompleteListener{
-            Toast.makeText(applicationContext, "Correctement enregistrer", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, PermisActivity::class.java))
-        }
-        
+                for(i in items){
+                    var userEmail = i.child("email").getValue().toString()
+                    var userNum = i.child("num").getValue().toString()
 
+                    if(email != userEmail){
+                        exists = false
+                        if (num == userNum){
+                            Toast.makeText(applicationContext, "Un compte avec ce numéro de téléphone existe déjà !", Toast.LENGTH_LONG).show()
+                            exists = true
+                            break
+                        }
+                    } else{
+                        Toast.makeText(applicationContext, "Un compte avec cette adresse mail existe déjà !", Toast.LENGTH_LONG).show()
+                        exists = true
+                        break
+                    }
+                }
+
+                if (!exists){
+                    val ref = FirebaseDatabase.getInstance().getReference("Saves")
+                    val saveId = ref.push().key.toString()
+
+                    val save = Save(saveId, name, name2, email, num, mdp, confMdp)
+
+                    ref.child(saveId).setValue(save).addOnCompleteListener{
+                        Toast.makeText(applicationContext, "Correctement enregistrer", Toast.LENGTH_LONG).show()
+                        val intent = Intent(baseContext, PermisActivity::class.java)
+                        intent.putExtra("ID", saveId)
+                        startActivity(intent)
+                    }
+                }
+            }
+        })
     }
 
     private fun getText(data: Any): String {

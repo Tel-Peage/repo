@@ -40,6 +40,7 @@
             android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/welcomeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -189,7 +190,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="ON"
+                    android:text="OFF"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="25sp"
@@ -210,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="OFF"
+                    android:text="ON"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="25sp"

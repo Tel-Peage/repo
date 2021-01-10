@@ -49,6 +49,18 @@
         app:rippleColor="#FFFFFF" />
 
     <Button
+        android:id="@+id/buttonUpload"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:backgroundTint="@color/grey_button"
+        android:text="ENVOYER"
+        android:textColor="@color/white"
+        app:cornerRadius="20dp"
+        app:rippleColor="#FFFFFF" />
+
+    <Button
         android:id="@+id/goToAssurance"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
