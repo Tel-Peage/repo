@@ -1,6 +1,7 @@
 package com.example.peage
 
 import android.content.Intent
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
@@ -29,6 +30,7 @@ class SignUpActivity: AppCompatActivity() {
     }
 
     private fun Save(){
+
         val editTextName = findViewById<TextView>(R.id.editTextTextPersonName)
         val editTextName2 = findViewById<TextView>(R.id.editTextTextPersonName2)
         val editTextEmail = findViewById<TextView>(R.id.editTextTextEmailAddress2)
@@ -62,7 +64,7 @@ class SignUpActivity: AppCompatActivity() {
             return
         }
 
-        if (num.length < 10 || !num.startsWith("0")){
+        if (num.length != 10 || !num.startsWith("0")){
             Toast.makeText(applicationContext, "Numéro de téléphone incorrecte !", Toast.LENGTH_LONG).show()
             return
         }
@@ -90,6 +92,7 @@ class SignUpActivity: AppCompatActivity() {
             Toast.makeText(applicationContext, "Correctement enregistrer", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, PermisActivity::class.java))
         }
+        
 
     }
 

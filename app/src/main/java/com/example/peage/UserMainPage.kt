@@ -10,18 +10,18 @@ import androidx.appcompat.app.AppCompatActivity
 class UserMainPage(): AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.user_main_page)
+        setContentView(R.layout.user_main_page_2)
         val currentUserId = intent.getStringExtra("USERNAME")
         Toast.makeText(this, currentUserId, Toast.LENGTH_SHORT).show()
 
-        val videoView = findViewById<VideoView>(R.id.vid_main_page)
-        val videoPath = "android.resource://" + getPackageName() + "/" + R.raw.anim_peage
-        var uri = Uri.parse(videoPath)
-        videoView.setVideoURI(uri)
+        ///val videoView = findViewById<VideoView>(R.id.vid_main_page)
+        ////val videoPath = "android.resource://" + getPackageName() + "/" + R.raw.anim_peage
+        ///var uri = Uri.parse(videoPath)
+        ///videoView.setVideoURI(uri)
 
-        var mediaController = MediaController(this)
-        videoView.setMediaController(mediaController)
-        mediaController.setAnchorView(videoView)
+        ///var mediaController = MediaController(this)
+        ///videoView.setMediaController(mediaController)
+        ///mediaController.setAnchorView(videoView)
     }
 
 }

@@ -27,9 +27,10 @@
         android:background="@drawable/roundcorner"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528"
+        app:layout_constraintVertical_bias="0.343"
         app:srcCompat="@drawable/run_logo" />
 
     <TextView
@@ -66,16 +67,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton12" />
-
-    <VideoView
-        android:id="@+id/vid_main_page"
-        android:layout_width="452dp"
-        android:layout_height="241dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
