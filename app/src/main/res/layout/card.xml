@@ -12,56 +12,83 @@
         android:layout_height="175dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/nameCardText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
         android:hint="Nom sur la carte"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="#6FFFFFFF" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="33dp" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/numCardText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
         android:hint="Numéro de carte"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:textColorHint="#6FFFFFFF" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="33dp" />
 
     <EditText
-        android:id="@+id/editTextNumber4"
+        android:id="@+id/dateExpText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
         android:hint="Date d'expiration"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:textColorHint="#6FFFFFFF" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="33dp" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/cryptogrammeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
         android:hint="Cryptogramme"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:textColorHint="#6FFFFFFF" />
+
+    <Button
+        android:id="@+id/confirmButCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="100dp"
+        android:backgroundTint="@color/grey_button"
+        android:text="CONFIRMER"
+        android:textColor="@color/white"
+        app:cornerRadius="20dp"
+        app:iconTint="@color/grey_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordCheck"
+        app:layout_constraintVertical_bias="0.478"
+        app:rippleColor="#577590" />
 
     <Space
         android:layout_width="match_parent"

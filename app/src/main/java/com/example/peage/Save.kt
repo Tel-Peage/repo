@@ -9,4 +9,9 @@ class Save(
     val Mdp: String,
     val ConfMdp: String,
     val permis_url: String = "",
-    val assurance_url: String = "")
+    val assurance_url: String = "",
+    val nomCarte : String = "",
+    val numCarte : String = "",
+    val dateExpiration : String = "",
+    val cryptogramme : String = "",
+)

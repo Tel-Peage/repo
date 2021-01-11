@@ -45,7 +45,7 @@ class PermisActivity: AppCompatActivity() {
         }
         buttonNext = findViewById(R.id.goToAssurance)
         buttonNext.setOnClickListener{
-            val intent = Intent(baseContext, PermisActivity::class.java)
+            val intent = Intent(baseContext, AssuranceActivity::class.java)
             intent.putExtra("ID", currentUserId)
             startActivity(intent)
         }

@@ -1,4 +1,4 @@
-package com.example.peage
+ package com.example.peage
 
 import android.content.Intent
 import android.net.NetworkInfo
@@ -11,8 +11,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import java.util.regex.Pattern
+import kotlin.random.Random
+import kotlin.random.nextInt
 
-class SignUpActivity: AppCompatActivity() {
+ class SignUpActivity: AppCompatActivity() {
 
     lateinit var editTextName: EditText
     lateinit var buttonSignUp: Button
@@ -111,20 +113,48 @@ class SignUpActivity: AppCompatActivity() {
                 }
 
                 if (!exists){
+
+                    var randomCode = Random.nextInt(1000..9999).toString()
+
                     val ref = FirebaseDatabase.getInstance().getReference("Saves")
                     val saveId = ref.push().key.toString()
-
                     val save = Save(saveId, name, name2, email, num, mdp, confMdp)
 
                     ref.child(saveId).setValue(save).addOnCompleteListener{
-                        Toast.makeText(applicationContext, "Correctement enregistrer", Toast.LENGTH_LONG).show()
-                        val intent = Intent(baseContext, PermisActivity::class.java)
-                        intent.putExtra("ID", saveId)
-                        startActivity(intent)
+                        sendMail(saveId, email, randomCode)
+
+                        setContentView(R.layout.email_verification)
+
+
+                        var confButton = findViewById<Button>(R.id.confirmBut)
+
+                        confButton.setOnClickListener(){
+                            var textCode = findViewById<TextView>(R.id.passwordCheck).text.toString()
+                            if (textCode == randomCode){
+                                Toast.makeText(applicationContext, "Correctement enregistrer", Toast.LENGTH_LONG).show()
+                                val intent = Intent(baseContext, PermisActivity::class.java)
+                                intent.putExtra("ID", saveId)
+                                startActivity(intent)
+                            }else{
+                                Toast.makeText(applicationContext, "Code incorrecte", Toast.LENGTH_LONG).show()
+                            }
+                        }
+
+
                     }
+
                 }
             }
         })
+    }
+
+    private fun sendMail(ID : String, email : String, code : String){
+
+        var message: String = "Bienvenue chez Tel & Péage !" + "\n" + "Afin de confirmer votre compte, merci de rentrer le code ci dessous dans l'application." + "\n\n" + "Code : $code"
+
+
+        var javaMailAPI : JavaMailAPI = JavaMailAPI(this, email, "Confirmez votre adresse mail !", message)
+        javaMailAPI.execute()
     }
 
     private fun getText(data: Any): String {
