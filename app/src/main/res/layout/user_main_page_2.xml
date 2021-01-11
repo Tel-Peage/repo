@@ -7,13 +7,13 @@
     android:background="#363F50">
 
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemIconTint="@color/grey_button"
-        app:itemTextColor="@color/grey_button"
+        android:background="@color/grey_button"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu">
 
@@ -52,7 +52,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,46 +66,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/math_bg"
-                android:orientation="horizontal"
-                android:padding="3dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Banque"
-                        android:textColor="@color/white"
-                        android:textSize="23sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:padding="8dp"
-                    android:src="@drawable/banq_logo"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/math_bg"
                 android:orientation="horizontal"
@@ -117,10 +81,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
-                        android:text="Profil"
+                        android:layout_marginRight="5dp"
+                        android:text="Mon profil"
                         android:textColor="@color/white"
                         android:textSize="23sp"
                         android:textStyle="bold" />
@@ -128,56 +92,19 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:padding="8dp"
-                    android:src="@drawable/banq_logo"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/math_bg"
-                android:orientation="horizontal"
-                android:padding="3dp">
-
-                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Divers"
-                        android:textColor="@color/white"
-                        android:textSize="23sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="175dp"
                     android:padding="8dp"
-                    android:src="@drawable/banq_logo"/>
-
+                    android:src="@drawable/profile" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginTop="60dp"
                 android:layout_marginLeft="60dp"
+                android:layout_marginTop="175dp"
                 android:layout_marginRight="60dp"
                 android:background="@drawable/switch_bg"
                 android:gravity="center"
