@@ -13,6 +13,16 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class UserMainPage(): AppCompatActivity() {
+
+    lateinit var currentUser_id : String
+    lateinit var currentUser_firstname : String
+    lateinit var currentUser_name : String
+    lateinit var currentUser_email : String
+    lateinit var currentUser_num : String
+    lateinit var currentUser_mdp : String
+    lateinit var currentUser_permis_url : String
+    lateinit var currentUser_assurance_url : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_main_page_2)
@@ -28,7 +38,17 @@ class UserMainPage(): AppCompatActivity() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 var map = snapshot.value as Map<String, Any>
-                LoadProfile(map["prenom"].toString())
+
+                currentUser_id = map["id"].toString()
+                currentUser_firstname = map["firstname"].toString()
+                currentUser_name = map["name"].toString()
+                currentUser_email = map["email"].toString()
+                currentUser_num = map["num"].toString()
+                currentUser_mdp = map["mdp"].toString()
+                currentUser_permis_url = map["permis_url"].toString()
+                currentUser_assurance_url = map["assurance_url"].toString()
+
+                LoadProfile(map["firstname"].toString())
             }
 
         })
@@ -45,7 +65,7 @@ class UserMainPage(): AppCompatActivity() {
 
     private fun LoadProfile(userFirstname : String){
         val welcome = findViewById<TextView>(R.id.welcomeText)
-        welcome.text = "Bonjour, $userFirstname"
+        welcome.text = "Bonjour $userFirstname,"
     }
 
 }

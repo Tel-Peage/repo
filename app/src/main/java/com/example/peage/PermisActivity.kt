@@ -76,12 +76,11 @@ class PermisActivity: AppCompatActivity() {
 
         var fileRef = StorageRef.child("permis_images/" + System.currentTimeMillis().toString() + "." + getFileExtension(uri))
         fileRef.putFile(uri).addOnSuccessListener(object : OnSuccessListener<UploadTask.TaskSnapshot> {
-            override fun onSuccess(p0: UploadTask.TaskSnapshot?) {
+            override fun onSuccess(taskSnapshot: UploadTask.TaskSnapshot) {
                 fileRef.getDownloadUrl().addOnSuccessListener(object : OnSuccessListener<Uri>{
                     override fun onSuccess(p0: Uri?) {
-
                         /// put url in permis_url here
-                        currentUser.child("permis_url").setValue(uri.toString())
+                        currentUser.child("permis_url").setValue(p0.toString())
                         Toast.makeText(applicationContext, "Image envoyée", Toast.LENGTH_LONG).show()
                         val intent = Intent(baseContext, AssuranceActivity::class.java)
                         intent.putExtra("ID", currentUserId)

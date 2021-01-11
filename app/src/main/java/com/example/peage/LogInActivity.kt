@@ -1,5 +1,6 @@
 package com.example.peage
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -10,8 +11,13 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import java.io.*
+import java.lang.Exception
+import java.nio.file.Paths
 
 class LogInActivity: AppCompatActivity() {
+
+    private var fileName : String = "StayConnected.txt"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +57,7 @@ class LogInActivity: AppCompatActivity() {
                         var userEmail = i.child("email").getValue().toString()
                         var userMdp = i.child("mdp").getValue().toString()
 
-                        var userPrenom = i.child("prenom").getValue().toString()
+                        var userPrenom = i.child("firstname").getValue().toString()
                         var userId = i.child("id").getValue().toString()
 
 
@@ -64,6 +70,10 @@ class LogInActivity: AppCompatActivity() {
                             val intent = Intent(baseContext, UserMainPage::class.java)
                             intent.putExtra("USERNAME", userId)
                             startActivity(intent)
+
+                            writeToFile(userId)
+                            readFile()
+
                             return
                         }
                     }
@@ -71,5 +81,23 @@ class LogInActivity: AppCompatActivity() {
                 }
             })
         }
+    }
+
+    private fun writeToFile(ID : String){
+        try {
+            File(fileName).bufferedWriter().use { out ->
+                out.write(ID)
+
+            }
+            //display file saved message
+            Toast.makeText(baseContext, "File saved successfully! ", Toast.LENGTH_SHORT).show()
+        }
+        catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+    private fun readFile(){
+        val inputString: String = File(fileName).bufferedReader().use { it.readText() }
+        Toast.makeText(baseContext, inputString, Toast.LENGTH_SHORT).show()
     }
 }

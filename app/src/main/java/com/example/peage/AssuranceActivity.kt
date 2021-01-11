@@ -80,7 +80,7 @@ class AssuranceActivity: AppCompatActivity() {
                     override fun onSuccess(p0: Uri?) {
 
                         /// put url in permis_url here
-                        currentUser.child("assurance_url").setValue(uri.toString())
+                        currentUser.child("assurance_url").setValue(p0.toString())
                         Toast.makeText(applicationContext, "Image envoyée", Toast.LENGTH_LONG).show()
                         val intent = Intent(baseContext, CardActivity::class.java)
                         intent.putExtra("ID", currentUserId)
