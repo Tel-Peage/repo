@@ -65,7 +65,7 @@ class UserMainPage(): AppCompatActivity() {
 
     private fun LoadProfile(userFirstname : String){
         val welcome = findViewById<TextView>(R.id.welcomeText)
-        welcome.text = "Bonjour $userFirstname,"
+        welcome.text = "Bonjour $userFirstname"
     }
 
 }
