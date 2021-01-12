@@ -4,22 +4,25 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.peage.fragments.HistFragment
+import com.example.peage.fragments.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+
 
 class UserMainPage(): AppCompatActivity() {
 
@@ -35,6 +38,8 @@ class UserMainPage(): AppCompatActivity() {
     private var handlerAnimation = Handler()
     private var statusAnimation = false
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_main_page_2)
@@ -42,6 +47,7 @@ class UserMainPage(): AppCompatActivity() {
 
         var database = FirebaseDatabase.getInstance().getReference("Saves")
         var currentUser = database.child(currentUserId.toString())
+
 
         currentUser.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
@@ -85,6 +91,7 @@ class UserMainPage(): AppCompatActivity() {
             statusAnimation = !statusAnimation
 
 
+
         }
 
         val bottom_navigation = findViewById<BottomNavigationView>(R.id.bottomNavigationView2)
@@ -92,7 +99,6 @@ class UserMainPage(): AppCompatActivity() {
 
         val navController = findNavController(R.id.fragment4)
         bottom_navigation.setupWithNavController(navController)
-
 
         ///val videoView = findViewById<VideoView>(R.id.vid_main_page)
         ////val videoPath = "android.resource://" + getPackageName() + "/" + R.raw.anim_peage
@@ -110,6 +116,8 @@ class UserMainPage(): AppCompatActivity() {
     private fun LoadProfile(userFirstname : String){
         val welcome = findViewById<TextView>(R.id.welcomeText)
         welcome.text = "Bonjour $userFirstname"
+
+
     }
 
     private fun startPulse() {
