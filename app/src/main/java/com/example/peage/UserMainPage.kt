@@ -9,12 +9,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class UserMainPage(): AppCompatActivity() {
+class UserMainPage: AppCompatActivity() {
 
     lateinit var currentUser_id : String
     lateinit var currentUser_firstname : String
@@ -76,18 +77,10 @@ class UserMainPage(): AppCompatActivity() {
                 }
             }
             statusAnimation = !statusAnimation
+
+
+
         }
-
-        ///val videoView = findViewById<VideoView>(R.id.vid_main_page)
-        ////val videoPath = "android.resource://" + getPackageName() + "/" + R.raw.anim_peage
-        ///var uri = Uri.parse(videoPath)
-        ///videoView.setVideoURI(uri)
-
-        ///var mediaController = MediaController(this)
-        ///videoView.setMediaController(mediaController)
-        ///mediaController.setAnchorView(videoView)
-
-        // Initializes Bluetooth adapter.
 
     }
 

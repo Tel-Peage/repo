@@ -37,7 +37,7 @@
         <activity android:name=".UserMainPage" />
         <activity android:name=".AssuranceActivity" />
         <activity android:name=".CardActivity" />
-
+        <activity android:name=".Settings"/>
 
         <meta-data
             android:name="preloaded_fonts"
