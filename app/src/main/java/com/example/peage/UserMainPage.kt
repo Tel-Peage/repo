@@ -2,10 +2,8 @@ package com.example.peage
 
 import android.net.Uri
 import android.os.Bundle
-import android.widget.MediaController
-import android.widget.TextView
-import android.widget.Toast
-import android.widget.VideoView
+import android.os.Handler
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,6 +20,9 @@ class UserMainPage(): AppCompatActivity() {
     lateinit var currentUser_mdp : String
     lateinit var currentUser_permis_url : String
     lateinit var currentUser_assurance_url : String
+
+    private var handlerAnimation = Handler()
+    private var statusAnimation = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +54,19 @@ class UserMainPage(): AppCompatActivity() {
 
         })
 
+        var button = findViewById<Button>(R.id.buttonblth)
+        button.setOnClickListener(){
+            if (statusAnimation){
+                stopPulse()
+                button.setText("START")
+            }
+            else{
+                startPulse()
+                button.setText("STOP")
+            }
+            statusAnimation = !statusAnimation
+        }
+
         ///val videoView = findViewById<VideoView>(R.id.vid_main_page)
         ////val videoPath = "android.resource://" + getPackageName() + "/" + R.raw.anim_peage
         ///var uri = Uri.parse(videoPath)
@@ -68,4 +82,31 @@ class UserMainPage(): AppCompatActivity() {
         welcome.text = "Bonjour $userFirstname"
     }
 
+    private fun startPulse() {
+        runnable.run()
+    }
+
+    private fun stopPulse() {
+        handlerAnimation.removeCallbacks(runnable)
+    }
+
+    private var runnable = object : Runnable{
+        override fun run() {
+            var imgAnimation1 = findViewById<ImageView>(R.id.imgAnimation1)
+            imgAnimation1.animate().scaleX(4f).scaleY(4f).alpha(0f).setDuration(1000)
+                .withEndAction{
+                    imgAnimation1.scaleX = 1f
+                    imgAnimation1.scaleY = 1f
+                    imgAnimation1.alpha = 1f
+                }
+            var imgAnimation2 = findViewById<ImageView>(R.id.imgAnimation2)
+            imgAnimation2.animate().scaleX(4f).scaleY(4f).alpha(0f).setDuration(700)
+                .withEndAction{
+                    imgAnimation2.scaleX = 1f
+                    imgAnimation2.scaleY = 1f
+                    imgAnimation2.alpha = 1f
+                }
+            handlerAnimation.postDelayed(this, 1500)
+        }
+    }
 }

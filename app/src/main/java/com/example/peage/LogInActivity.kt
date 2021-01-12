@@ -3,6 +3,7 @@ package com.example.peage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -67,12 +68,11 @@ class LogInActivity: AppCompatActivity() {
 
                         if(emailText.text.toString() == userEmail && mdpText.text.toString() == userMdp){
                             Toast.makeText(applicationContext, "Bienvenue $userPrenom", Toast.LENGTH_LONG).show()
+
                             val intent = Intent(baseContext, UserMainPage::class.java)
                             intent.putExtra("USERNAME", userId)
                             startActivity(intent)
 
-                            writeToFile(userId)
-                            readFile()
 
                             return
                         }
@@ -81,23 +81,5 @@ class LogInActivity: AppCompatActivity() {
                 }
             })
         }
-    }
-
-    private fun writeToFile(ID : String){
-        try {
-            File(fileName).bufferedWriter().use { out ->
-                out.write(ID)
-
-            }
-            //display file saved message
-            Toast.makeText(baseContext, "File saved successfully! ", Toast.LENGTH_SHORT).show()
-        }
-        catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-    private fun readFile(){
-        val inputString: String = File(fileName).bufferedReader().use { it.readText() }
-        Toast.makeText(baseContext, inputString, Toast.LENGTH_SHORT).show()
     }
 }

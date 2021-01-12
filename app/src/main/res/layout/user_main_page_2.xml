@@ -13,7 +13,8 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textView10"
@@ -50,70 +51,36 @@
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-19dp">
+    <ImageView
+        android:id="@+id/imgAnimation2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="175dp"
-            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imgAnimation1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="147dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginRight="60dp"
-                android:background="@drawable/switch_bg"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="3dp">
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="68dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="OFF"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <Switch
-                    android:id="@+id/switch3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:switchMinWidth="100dp"
-                    android:textAlignment="viewStart"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/BrandedSwitch" />
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="72dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="ON"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
+    <Button
+        android:id="@+id/buttonblth"
+        style="@style/AppTheme.ButtonStyle"
+        android:layout_width="179dp"
+        android:layout_height="187dp"
+        android:text="START"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
