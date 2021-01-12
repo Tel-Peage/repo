@@ -60,6 +60,9 @@ class UserMainPage(): AppCompatActivity() {
 
         var button = findViewById<Button>(R.id.buttonblth)
         button.setOnClickListener(){
+            val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+            val bluetoothAdapter = bluetoothManager.adapter
+            val REQUEST_ENABLE_BT = 1
             if (statusAnimation){
                 stopPulse()
                 button.setText("START")
@@ -67,6 +70,10 @@ class UserMainPage(): AppCompatActivity() {
             else{
                 startPulse()
                 button.setText("STOP")
+                if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled) {
+                    val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+                    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
+                }
             }
             statusAnimation = !statusAnimation
         }
@@ -81,26 +88,6 @@ class UserMainPage(): AppCompatActivity() {
         ///mediaController.setAnchorView(videoView)
 
         // Initializes Bluetooth adapter.
-        val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
-        val bluetoothAdapter = bluetoothManager.adapter
-        val REQUEST_ENABLE_BT = 1
-
-        val switch = findViewById<Switch>(R.id.switchBluetooth)
-        switch.setOnCheckedChangeListener{_, isChecked ->
-            if(isChecked) {
-                // Ensures Bluetooth is available on the device and it is enabled. If not,
-                // displays a dialog requesting user permission to enable Bluetooth.
-                if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled) {
-                    val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-                    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
-                }
-                Toast.makeText(this, "Service ON", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                Toast.makeText(this, "Service OFF", Toast.LENGTH_SHORT).show()
-            }
-
-        }
 
     }
 
