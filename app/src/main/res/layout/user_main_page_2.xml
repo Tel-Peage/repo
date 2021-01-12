@@ -77,10 +77,12 @@
         android:layout_width="179dp"
         android:layout_height="187dp"
         android:text="START"
+        app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#FFFFFF" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
